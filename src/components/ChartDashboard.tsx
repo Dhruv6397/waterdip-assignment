@@ -38,15 +38,15 @@ const ChartDashboard: React.FC = () => {
     Papa.parse("/data.csv", {
       download: true,
       header: true,
-      complete: (result) => {
-        const parsedData: CSVData[] = result.data.map((row: any) => ({
-          arrival_date_year: parseInt(row.arrival_date_year),
-          arrival_date_month: row.arrival_date_month,
-          arrival_date_day_of_month: parseInt(row.arrival_date_day_of_month),
-          adults: parseInt(row.adults),
-          children: parseInt(row.children),
-          babies: parseInt(row.babies),
-          country: row.country,
+      complete: (result:Papa.ParseResult<CSVData>) => {
+        const parsedData: CSVData[] = result.data.map((row:Partial<CSVData>) => ({
+          arrival_date_year: parseInt(row.arrival_date_year?.toString() || '0'),
+          arrival_date_month: row.arrival_date_month || '',
+          arrival_date_day_of_month: parseInt(row.arrival_date_day_of_month?.toString() || '0'),
+          adults: parseInt(row.adults?.toString() || '0'),
+          children: parseInt(row.children?.toString() || '0'),
+          babies: parseInt(row.babies?.toString() || '0'),
+          country: row.country || '',
         }));
         setData(parsedData);
         setFilteredData(parsedData); 
@@ -75,7 +75,7 @@ const ChartDashboard: React.FC = () => {
     filterDataByDate();
   }, [startDate, endDate, data]);
 
-  const lineChartData = filteredData.reduce((acc: any, item) => {
+  const lineChartData = filteredData.reduce((acc:  Record<string, number>, item) => {
     const dateString = `${item.arrival_date_year}-${item.arrival_date_month}-${item.arrival_date_day_of_month}`;
     const totalVisitors = item.adults + item.children + item.babies;
 
@@ -87,7 +87,7 @@ const ChartDashboard: React.FC = () => {
     return acc;
   }, {});
 
-  const barChartData = filteredData.reduce((acc: any, item) => {
+  const barChartData = filteredData.reduce((acc:  Record<string, number>, item) => {
     const totalVisitors = item.adults + item.children + item.babies;
     if (!acc[item.country]) {
       acc[item.country] = totalVisitors;
