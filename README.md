@@ -2,6 +2,17 @@
 
 ### This project is a data visualization dashboard built using React, where data is fetched from a CSV file and displayed in various charts. The CSV data contains information about hotel bookings, including the arrival date, number of adults, children, and babies, and the country of the visitors.
 
+### Preview Image
+![Dashboard Preview](./assets/preview.png)
+
+### Demo Video
+[Watch the demo video](./assets/preview%20video.mp4)
+
+### Hosted Link
+
+[Visit the Website](https://waterdip-dashboard-assignment.vercel.app/)
+
+
 ### The dashboard allows users to filter data based on a specific date range and visualize:
 
 #### Visitors per Day (Total number of adults, children, and babies)
@@ -20,12 +31,7 @@ Place your CSV file in the public directory.
 Run the app using npm start.
 Select a date range, and the charts will automatically update based on the filtered data.
 
-### Preview Image
-![Dashboard Preview](./assets/preview.png)
 
-### Demo Video
-
-[Watch the demo video](./assets/preview%20video.mp4)
 
 ## Typescript + React
 
