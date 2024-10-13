@@ -4,7 +4,6 @@ interface LineChartProps {
   data: { [key: string]: number }; 
 }
 
-// Adjust the chart container style to ensure proper sizing and alignment
 const chartStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
@@ -17,7 +16,6 @@ const chartStyle: React.CSSProperties = {
   boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.6)'
 };
 
-// Adjust the interior style for the chart to fit within the container
 const interiorStyle: React.CSSProperties = {
   width: "100%",
   height: "100%",

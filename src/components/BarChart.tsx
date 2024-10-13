@@ -36,16 +36,16 @@ const BarChart: React.FC<BarChartProps> = ({ data }) => {
           chart: {
             id: "visitors-per-country",
             zoom: {
-              enabled: true,  // Enable zooming
-              type: 'x',      // Zoom along the x-axis (can also be 'xy' or 'y')
+              enabled: true,  
+              type: 'x',     
             },
             toolbar: {
-              autoSelected: 'zoom', // Add zoom toolbar option
+              autoSelected: 'zoom',
               tools: {
                 zoom: true,
                 zoomin: true,
                 zoomout: true,
-                pan: true, // Enable panning
+                pan: true, 
               },
             },
           },

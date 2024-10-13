@@ -1,9 +1,65 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  scrollbar-color: transparent;
+/* styles.css */
+.custom-datepicker {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 16px;
+  outline: none;
 }
+
+.custom-datepicker:focus {
+  border-color: #5c9bd1;
+  box-shadow: 0 0 5px rgba(92, 155, 209, 0.5);
+}
+
+
+
+.custom-datepicker::placeholder {
+  color: #d3d3d3; 
+}
+
+.custom-datepicker {
+  background-color: #3e3e3e; 
+  color: #fff;
+  border: 1px solid #fff; 
+}
+
+.react-datepicker {
+  background-color: #000000;
+  color: #fff; 
+}
+
+.react-datepicker__header {
+  background-color: #333; 
+  color: #fff; 
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day,
+.react-datepicker__day-name {
+  color: #f0f0f0; 
+}
+
+
+
+
+.react-datepicker__month-dropdown,
+.react-datepicker__year-dropdown {
+  background-color: #000; 
+  color: #fff;
+  border: 1px solid #fff; 
+  border-radius: 4px;
+}
+
+.react-datepicker__month-dropdown:focus,
+.react-datepicker__year-dropdown:focus {
+  border-color: #5c9bd1; 
+  box-shadow: 0 0 5px rgba(92, 155, 209, 0.5);
+}
+
+
+
 
 

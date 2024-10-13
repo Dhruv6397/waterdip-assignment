@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import BarChart from "./BarChart";
 import LineChart from "./LineChart";
 import { ParseResult } from '../types/papaparse.types';
+
 interface CSVData {
   arrival_date_year: number;
   arrival_date_month: string;
@@ -126,8 +127,14 @@ const ChartDashboard: React.FC = () => {
           <DatePicker
             selected={startDate}
             onChange={(date: Date | null) => setStartDate(date)}
-            placeholderText="MM/DD/YYYY"
+            placeholderText="Select Date"
+            className="custom-datepicker"
+            showYearDropdown
+            showMonthDropdown
+            yearDropdownItemNumber={15} 
+            scrollableYearDropdown 
           />
+
         </div>
         <div style={{ display: "flex", flexDirection: 'column', alignItems: 'center' }}>
           <h4 style={{ margin: '0' }}>End Date</h4>
@@ -135,27 +142,33 @@ const ChartDashboard: React.FC = () => {
             selected={endDate}
             onChange={(date: Date | null) => setEndDate(date)}
             placeholderText="MM/DD/YYYY"
+            className="custom-datepicker"
+            showYearDropdown
+            showMonthDropdown
+            yearDropdownItemNumber={15}
+            scrollableYearDropdown
           />
         </div>
       </div>
 
-      <div style={{ display: "flex", alignItems: 'center', justifyContent: 'space-evenly', width: '100vw', overflow: 'hidden' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h3 style={{ color: 'rgb(5,127,219)' }}>Visitors Per Day</h3>
-          <LineChart data={lineChartData} />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ display: "flex", alignItems: 'center', justifyContent: 'space-evenly', width: '100vw', overflow: 'hidden', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 100%', maxWidth: '400px' }}>
           <h3 style={{ color: 'rgb(5,127,219)' }}>Visitors Per Country</h3>
           <BarChart data={barChartData} />
         </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 100%', maxWidth: '400px' }}>
+          <h3 style={{ color: 'rgb(5,127,219)' }}>Visitors Per Day</h3>
+          <LineChart data={lineChartData} />
+        </div>
+        
       </div>
 
-      <div style={{ display: "flex", alignItems: 'center', justifyContent: 'space-evenly', width: '100vw' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ display: "flex", alignItems: 'center', justifyContent: 'space-evenly', width: '100vw', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 100%', maxWidth: '400px' }}>
           <h3 style={{ color: 'rgb(5,127,219)' }}>Total number of adult Visitors</h3>
           <LineChart data={adultVisitorsData} />
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: '1 1 100%', maxWidth: '400px' }}>
           <h3 style={{ color: 'rgb(5,127,219)' }}>Total number of children Visitors</h3>
           <LineChart data={childrenVisitorsData} />
         </div>
